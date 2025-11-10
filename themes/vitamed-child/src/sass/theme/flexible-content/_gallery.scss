@@ -1,0 +1,20 @@
+.gallery-section {
+
+  .image-wrapper{
+    border-radius: 10px;
+    img.attachment-large{
+      width: 100%;
+      aspect-ratio: 600/382;
+      object-fit: cover;
+    }
+
+    .fancybox-target{
+      img{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+      }
+
+    }
+  }
+}
