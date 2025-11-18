@@ -1,0 +1,363 @@
+.page-title {
+  margin-bottom: 35px;
+}
+
+.breadcrumbs {
+  font-size: 14px;
+
+  a {
+    color: #868686;
+  }
+}
+
+.archive-wrapper {
+  padding-top: 35px;
+}
+
+.m-75 {
+  margin: 75px auto;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 50px;
+  background: #fff;
+  max-width: fit-content;
+
+  .page-link {
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 200px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 18px;
+
+    &:not(.current) {
+      background: #F5F5F5;
+    }
+  }
+
+}
+
+.pagination-wrapper {
+  ul {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 50px;
+    background: #fff;
+    max-width: fit-content;
+    list-style: none;
+
+    a, span {
+      min-width: 40px;
+      min-height: 40px;
+      border-radius: 200px !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      font-size: 18px;
+
+      &.current {
+        background: #31312F;
+        color: #fff;
+      }
+
+      &:not(.current) {
+        background: #F5F5F5;
+      }
+    }
+  }
+}
+
+.blog {
+  .content-wrapper {
+    padding: 15px 30px;
+  }
+
+  .image-wrapper,
+  .content-wrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .single-item {
+    padding: 15px;
+    border-radius: 20px;
+
+    img {
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .title {
+    margin-bottom: 15px;
+  }
+
+  .content {
+    color: #868686;
+  }
+}
+
+.doctors {
+  .image-wrapper {
+    aspect-ratio: var(--aspect-ratio, 275 / 300);
+  }
+
+  .single-item {
+    padding: 15px;
+    border-radius: 20px;
+  }
+
+  img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content-wrapper {
+    padding: 15px;
+
+    .title {
+      margin-top: 15px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .experience {
+    font-size: 16px;
+    background: #fff;
+    padding: 5px 15px;
+    border-radius: 100px;
+    left: 10px;
+    bottom: 10px;
+    z-index: 9;
+  }
+
+  .qualification {
+    margin-top: 15px;
+    color: #868686;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .specialties {
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #666;
+}
+
+#specialty-filter {
+  width: 413px;
+  padding-left: 60px;
+  height: 60px;
+  color: #868686;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.specialty {
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.svg_select {
+  left: 10px;
+  bottom: 10px;
+  z-index: 10;
+}
+
+
+///// Single
+
+.single-doctors {
+  .accordion {
+    border-radius: 10px;
+    --bs-accordion-active-bg: transparent;
+    --bs-accordion-btn-bg: transparent;
+    --bs-accordion-border-width: 0;
+    --bs-accordion-border-radius: 10px;
+    --bs-accordion-border-color: #D8D8D8;
+    --bs-accordion-btn-padding-x: 20px;
+    --bs-accordion-btn-padding-y: 23px;
+    --bs-accordion-btn-icon: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDEyIDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMNiA2TDExIDEiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==);
+    --bs-accordion-btn-active-icon: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDEyIDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMSA2TDYgMUwxIDYiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==);
+    --bs-accordion-btn-icon-transform: rotate(0deg);
+
+    .accordion-item {
+      border: 1px solid #D8D8D8;
+
+    }
+
+    .accordion-button {
+      &:focus {
+        box-shadow: none;
+      }
+
+      &::after {
+        width: 40px;
+        height: 40px;
+        background-color: var(--bs-secondary);
+        background-size: 10px 5px;
+        background-position: center;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .consultation {
+    gap: 15px;
+  }
+
+  .accordion-masonry {
+    column-count: 2;
+    column-gap: 20px;
+
+    .accordion-item {
+      break-inside: avoid;
+    }
+
+    @media (max-width: 767px) {
+      column-count: 1;
+    }
+  }
+
+  .bx-70 {
+    --bs-gutter-x: 70px;
+  }
+
+  .image-wrapper {
+    aspect-ratio: var(--aspect-ratio, 360 / 360);
+  }
+}
+
+
+/////////////
+
+
+
+
+
+.container {
+  position: relative;
+}
+
+.btn__wrapper, .calendar {
+  display: inline-block;
+}
+
+.btn__wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  &.next {
+    right: 0;
+  }
+  &.prev {
+    left:0;
+  }
+  &.next, &.prev {
+    cursor: pointer;
+
+    path {
+      stroke: var(--theme);
+    }
+  }
+}
+
+.calendar {
+  //size of day * number of days in row + margin * 2 (left and right)
+  width: (50px * 7) + 0;
+  background-color: #FFFFFF;
+  position: relative;
+  margin: 3rem auto;
+
+  &__header {
+    background-color: var(--theme);
+    color: var(--col);
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  &__month__year {
+    display: inline-block;
+    background-color: var(--theme);
+    position: relative;
+    padding: 5px;
+    z-index: 9999;
+  }
+  &__body {
+    position: relative;
+  }
+  &__days {
+    text-align: left;
+  }
+  &__day {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    position: relative;
+
+    &__number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.draw-circle, .header__season {
+  position: absolute;
+
+  svg {
+    position: relative;
+  }
+}
+.draw-circle {
+  svg {
+    left: 5px;
+    top: 5px;
+  }
+}
+
+//to style use element, do not style it in html!
+svg use {
+  stroke: #222;
+  stroke-width: 1;
+}
+
+.today-svg {
+  stroke: var(--theme);
+  stroke-width: 2;
+}
+
+#winter, #spring, #summer, #fall {
+  visibility: hidden;
+}
+
+#winter.winter, #spring.spring, #summer.summer, #fall.fall {
+  visibility: visible;
+}
+
+.today-svg.hidden, .selected-days.hidden {
+  display: none;
+}

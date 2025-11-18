@@ -1,0 +1,63 @@
+{
+    "key": "group_68f62af822917",
+    "title": "Редактор контенту лікар",
+    "fields": [
+        {
+            "key": "field_68f62af82544c",
+            "label": "Секції",
+            "name": "doctor_sections",
+            "aria-label": "",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_68f621124a00d": {
+                    "key": "layout_68f621124a00d",
+                    "name": "hero",
+                    "label": "Основна секція",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_68f625d761099": {
+                    "key": "layout_68f625d761099",
+                    "name": "contact-us",
+                    "label": "Контактна форма",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "min": "",
+            "max": "",
+            "button_label": "Add Row"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "doctors"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1760965296
+}

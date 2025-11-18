@@ -1,0 +1,23 @@
+.doctor-booking-calendar{
+  width: auto;
+  .datepicker{
+    .datepicker-header {
+      .datepicker-controls {
+        .button {
+          border-color: transparent;
+          background-color: transparent;
+        }
+      }
+    }
+
+    .datepicker-cell.today:not(.selected) {
+      background-color: rgb(var(--bs-secondary-rgb), 0.1) ;
+      border-radius: 50%;
+      color: initial;
+    }
+    .datepicker-cell.selected, .datepicker-cell.selected:hover{
+      background-color: var(--bs-secondary);
+      border-radius: 50%;
+    }
+  }
+}

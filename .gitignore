@@ -1,0 +1,42 @@
+# ==========================
+# WordPress core files
+# ==========================
+
+/*
+!.gitignore
+!/wp-content/
+
+# ==========================
+# Content folders to ignore
+# ==========================
+
+/wp-content/*
+!/wp-content/plugins/
+!/wp-content/themes/
+
+# ==========================
+# Plugins
+# ==========================
+wp-content/plugins/*
+# !/wp-content/plugins/my-directory-plugin/
+
+# ==========================
+# Themes
+# ==========================
+/wp-content/themes/*
+!/wp-content/themes/vitamed-child/
+
+# ==========================
+# IDE / OS / logs
+# ==========================
+.idea/
+*.log
+*.tmp
+*.swp
+.DS_Store
+
+# ==========================
+# Node / Composer / Vendor
+# ==========================
+/node_modules/
+/vendor/

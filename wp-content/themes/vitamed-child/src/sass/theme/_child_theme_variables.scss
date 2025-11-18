@@ -1,0 +1,81 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
+// Just copy a variable from src/sass/assets/bootstrap5/_variables.scss, paste it here and edit the value.
+
+
+$light: #F7F7F7;
+//$light: #ffffff;
+$light_footer: #aaa7a7;
+$gray: #545454;
+$gray-dark: #31312F;
+$primary: $gray-dark;
+$secondary: #4CD30E;
+$body-color: $gray-dark;
+$Line_color: #4E4E4E;
+
+
+$line-height-base: 1.625;
+$grid-gutter-width: 20px;
+
+
+$navbar-brand-margin-end: 0;
+$navbar-light-toggler-icon-bg:url('data:image/svg+xml,<svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="2" fill="black"/><rect y="6" width="20" height="2" fill="black"/><rect x="10" y="12" width="10" height="2" fill="black"/></svg>');
+$navbar-light-toggler-border-color: transparent;
+$navbar-toggler-focus-width: 0px;
+
+$input-border-radius: 3.75rem;
+
+
+$spacer: 20px;
+$spacers: (
+        0: 0,
+        1: $spacer * .25,
+        2: $spacer * .5,
+        3: $spacer,
+        4: $spacer * 1.5,
+        5: $spacer * 2,
+        6: $spacer * 2.5,
+        7: $spacer * 3,
+        8: $spacer * 3.5,
+        9: $spacer * 4,
+        10: $spacer * 4.5,
+);
+
+
+$heading-font-weight: 600;
+$heading-line-height: 1.2;
+$heading-margin-bottom: 15px;
+
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px,
+        xxl: 1300px
+);
+
+$root-path: '/wp-content/themes/vitamed-child/';
+
+$font-family-sans-serif:
+  //"Inter",
+      "Inter Tight",
+  // Cross-platform generic font family (default user interface font)
+        system-ui,
+          // Safari for macOS and iOS (San Francisco)
+        -apple-system,
+          // Windows
+        "Segoe UI",
+          // Android
+        Roboto,
+          // older macOS and iOS
+        "Helvetica Neue",
+          // Linux
+        "Noto Sans",
+        "Liberation Sans",
+          // Basic web fallback
+        Arial,
+          // Sans serif fallback
+        sans-serif,
+          // Emoji fonts
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
