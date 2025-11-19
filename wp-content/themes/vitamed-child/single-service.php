@@ -20,26 +20,28 @@ $container = get_theme_mod( 'understrap_container_type' );
                 <div class="col-12">
                     <?php custom_breadcrumbs(); ?>
                 </div>
-                <div class="col-12 content-area" id="primary">
 
-                    <main class="site-main" id="main">
-
-                        <?php
-                        while ( have_posts() ) {
-                            the_post();
-
-                            get_template_part( 'loop-templates/content', 'single-service' );
-
-                        }
-                        ?>
-
-                    </main>
-
-                </div>
 
             </div><!-- .row -->
 
         </div><!-- #content -->
+
+        <div class=" content-area" id="primary">
+
+            <main class="site-main" id="main">
+
+                <?php
+                while ( have_posts() ) {
+                    the_post();
+
+                    get_template_part( 'loop-templates/content', 'single-service' );
+
+                }
+                ?>
+
+            </main>
+
+        </div>
 
     </div><!-- #single-wrapper -->
 <?php include get_stylesheet_directory() . '/flexible-content/sections/contact.php'; ?>

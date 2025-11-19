@@ -28,39 +28,39 @@ $theme_color = get_field( 'theme_color', 'option' ) ? get_field( 'theme_color', 
                 <div class="col-12">
                     <?php custom_breadcrumbs(); ?>
                 </div>
-                <div class="col-12 content-area" id="primary">
 
-                    <main class="site-main" id="main">
-
-                        <?php
-                        while (have_posts()) {
-                            the_post();
-                            //get_template_part('loop-templates/content', 'doctor');
-
-                            ?>
-                            <?php
-                            // ACF - Flexible Content fields.
-                            $sections = get_field( 'doctor_sections' );
-
-                            if ( $sections ) :
-                                foreach ( $sections as $key => $section ) :
-                                    $template = str_replace( '_', '-', $section['acf_fc_layout'] );
-                                    get_template_part( 'flexible-content/doctor/' . $template, '', array('key' => $key, 'section' => $section)  );
-                                endforeach;
-                            endif;
-                            ?>
-                            <?php
-                        }
-                        ?>
-
-                    </main>
-
-                </div>
 
             </div><!-- .row -->
 
         </div><!-- #content -->
+        <div class=" content-area" id="primary">
 
+            <main class="site-main" id="main">
+
+                <?php
+                while (have_posts()) {
+                    the_post();
+                    //get_template_part('loop-templates/content', 'doctor');
+
+                    ?>
+                    <?php
+                    // ACF - Flexible Content fields.
+                    $sections = get_field( 'doctor_sections' );
+
+                    if ( $sections ) :
+                        foreach ( $sections as $key => $section ) :
+                            $template = str_replace( '_', '-', $section['acf_fc_layout'] );
+                            get_template_part( 'flexible-content/sections/' . $template, '', array('key' => $key, 'section' => $section)  );
+                        endforeach;
+                    endif;
+                    ?>
+                    <?php
+                }
+                ?>
+
+            </main>
+
+        </div>
 
         <?php if( get_field( 'sign_up_open' ) && false){ ?>
 

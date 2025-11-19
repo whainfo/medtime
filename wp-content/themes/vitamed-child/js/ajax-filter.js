@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
                     $('.pagination-wrapper').html(response.data.pagination);
                     $('.found-posts').remove();
                     if (response.data.found_posts > 0) {
-                        $('.page-header').after('<p class="found-posts text-muted mb-3">Знайдено постів: ' + response.data.found_posts + '</p>');
+                        $('.page-header').after('<p class="found-posts text-muted mb-3">Знайдено лікарів: ' + response.data.found_posts + '</p>');
                     }
                 } else {
                     $('#main .posts-row').html('<div class="row"><div class="col-12"><p class="text-center">Немає постів за вибраним фільтром.</p></div></div>');

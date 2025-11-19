@@ -42,7 +42,7 @@ function vitamed_generate_schema( $schema ) {
     $working_hours = get_field( 'working_hours', 'option' )?: '';
     $social_group  = get_field( 'social', 'option' )?: '';
     $site_description  = get_field( 'site_description', 'option' )?: '';
-
+    $map_link      = get_field( 'map_link', 'option' ) ? get_field( 'map_link', 'option' ) : '';
 
     if ( is_front_page() ) {
 
@@ -75,8 +75,8 @@ function vitamed_generate_schema( $schema ) {
             ];
 
             foreach ( $days as $key => $day ) {
-                $from = $working_hours[ $key . '_from' ];
-                $to   = $working_hours[ $key . '_to' ];
+                $from = $working_hours[ $key ][ 'from' ];
+                $to   = $working_hours[ $key ][ 'to' ];
 
                 if ( $from && $to ) {
                     $openingHoursSpecification[] = array(
@@ -104,8 +104,14 @@ function vitamed_generate_schema( $schema ) {
                 }
             }
         }
+        $hasMap = '';
+        if($map_link){
+            $hasMap = esc_url( $map_link ) ;
+        }
+        elseif ($address){
+            $hasMap =   esc_url( 'https://www.google.com/maps/place/'.str_replace(" ", "+", $address_string) ) ;
+        }
 
-        $hasMap = $address ? esc_url( 'https://www.google.com/maps/place/'.str_replace(" ", "+", $address_string) ) : '';
 $aggregateRating = array(
             "@type"       => "AggregateRating",
             "ratingValue" => "4.8",
@@ -370,13 +376,16 @@ function remove_editor_theme_cap() {
 }
 add_action('init', 'remove_editor_theme_cap');
 function custom_remove_admin_menus() {
+
     if (current_user_can('editor')) {
         remove_menu_page('tools.php');
         remove_menu_page('edit-comments.php');
         remove_menu_page('wpcf7');
+        remove_submenu_page('sib_admin_page', 'sib_page_home');
+        remove_menu_page('sib_page_home');
     }
 }
-add_action('admin_menu', 'custom_remove_admin_menus', 999);
+add_action('admin_menu', 'custom_remove_admin_menus', 9999);
 
 add_filter( 'wpcf7_contact_form_properties', 'modify_email_author' );
 
@@ -402,3 +411,10 @@ function vitamed_unregister_tags() {
     unregister_taxonomy_for_object_type( 'post_tag', 'post' );
 }
 add_action( 'init', 'vitamed_unregister_tags' );
+
+add_action( 'admin_bar_menu', function( $wp_admin_bar ) {
+    if ( current_user_can( 'editor' ) ) {
+        $wp_admin_bar->remove_node( 'customize' );
+        $wp_admin_bar->remove_node( 'comments' );
+    }
+}, 999 );

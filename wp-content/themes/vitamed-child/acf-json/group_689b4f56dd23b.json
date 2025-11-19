@@ -42,6 +42,27 @@
             "append": ""
         },
         {
+            "key": "field_690381a682af0",
+            "label": "Код підтвердження сайту Google",
+            "name": "search_console",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_689b4f57d3ea0",
             "label": "Колір теми",
             "name": "theme_color",
@@ -58,7 +79,10 @@
             "default_value": "#4CD30E",
             "enable_opacity": 0,
             "return_format": "string",
-            "allow_in_bindings": 0
+            "allow_in_bindings": 0,
+            "custom_palette_source": "",
+            "palette_colors": "",
+            "show_color_wheel": true
         },
         {
             "key": "field_68f74155ac31a",
@@ -220,6 +244,24 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_690c8c8f7aec8",
+            "label": "Переглянути на карті",
+            "name": "map_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
         },
         {
             "key": "field_68f741c2838fc",
@@ -696,27 +738,6 @@
             "append": ""
         },
         {
-            "key": "field_68b6c7aed2f4d",
-            "label": "МІсто",
-            "name": "city",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_68a86e934f69d",
             "label": "Логотип сайту",
             "name": "site_image_url",
@@ -741,90 +762,6 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "medium"
-        },
-        {
-            "key": "field_68b6c76cd2f4b",
-            "label": "Тип клініки",
-            "name": "clinic_type",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_68b6c788d2f4c",
-            "label": "Спеціалізація",
-            "name": "specialization",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_68b6c75bd2f4a",
-            "label": "Сервіси клініки",
-            "name": "clinic_services",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_68b6c736d2f49",
-            "label": "Послуги клініки",
-            "name": "clinic_facilities",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         },
         {
             "key": "field_68a86f1e4f69e",
@@ -1481,5 +1418,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1761036599
+    "display_title": "",
+    "modified": 1763538295
 }

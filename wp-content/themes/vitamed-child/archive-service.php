@@ -78,8 +78,7 @@ $service_style      = get_field( 'service_style', 'option' ) ? get_field( 'servi
                                         <?php } ?>
 
                                         <div class="content-wrapper ">
-                                            <h3 class="title "><?php echo esc_html( get_the_title( get_the_ID() ) ); ?>
-                                                <span class="text-secondary">.</span></h3>
+                                            <h3 class="title "><?php echo esc_html( get_the_title( get_the_ID() ) ); ?></h3>
                                             <?php $description = get_field( 'description', get_the_ID() ); ?>
                                             <?php if ( $description ) { ?>
                                                     <p>

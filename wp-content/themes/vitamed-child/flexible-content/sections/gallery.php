@@ -13,7 +13,7 @@ if($key > 0){
 }
 $heading = $args['section']['heading'] ? $args['section']['heading'] : 'h2';
 $title   = $args['section']['title'];
-$text    = $args['section']['text'];
+
 
 $theme_color = get_field( 'theme_color', 'option' ) ? get_field( 'theme_color', 'option' ) : '#4CD30E';
 

@@ -29,27 +29,6 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_68d0edf44a182",
-            "label": "Text",
-            "name": "text",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_68cc032a5dfc5",
             "label": "Коротка інформація",
             "name": "description",
@@ -89,7 +68,7 @@
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Додати рядок",
+            "button_label": "Додати рядок ціни",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -132,8 +111,9 @@
                     "min": 0,
                     "max": 0,
                     "collapsed": "",
-                    "button_label": "Додати рядок",
+                    "button_label": "Додати Елемент",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_68cc1522be978",
                     "sub_fields": [
                         {
                             "key": "field_68cc156abe97b",
@@ -179,8 +159,7 @@
                             "append": "",
                             "parent_repeater": "field_68cc1556be97a"
                         }
-                    ],
-                    "parent_repeater": "field_68cc1522be978"
+                    ]
                 }
             ]
         },
@@ -302,5 +281,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1761042341
+    "display_title": "",
+    "modified": 1763538255
 }

@@ -510,3 +510,29 @@ function get_short_form($flag = '') {
 <?php
 }
 
+function format_years($number) {
+    $number = abs((int)$number); // на всяк випадок
+    $last_two = $number % 100;
+    $last_one = $number % 10;
+
+    if ($last_two >= 11 && $last_two <= 14) {
+        $suffix = 'років';
+    } else {
+        switch ($last_one) {
+            case 1:
+                $suffix = 'рік';
+                break;
+            case 2:
+            case 3:
+            case 4:
+                $suffix = 'роки';
+                break;
+            default:
+                $suffix = 'років';
+        }
+    }
+
+    return $number . ' ' . $suffix;
+}
+
+

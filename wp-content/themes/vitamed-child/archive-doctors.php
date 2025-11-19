@@ -101,7 +101,7 @@ get_header();
                                             $year = ' років';
                                         }
                                         ?>
-                                        <span class="experience position-absolute"><?php echo $experience . $year; ?></span>
+                                        <span class="experience position-absolute"><?php echo format_years(esc_html( $experience )) ?></span>
                                     <?php } ?>
                                 </div>
                                 <div class="content-wrapper d-flex flex-column flex-grow-1">

@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
     if ( $sections ) :
         foreach ( $sections as $key => $section ) :
             $template = str_replace( '_', '-', $section['acf_fc_layout'] );
-            get_template_part( 'flexible-content/service/' . $template, '', array('key' => $key, 'section' => $section)  );
+            get_template_part( 'flexible-content/sections/' . $template, '', array('key' => $key, 'section' => $section)  );
         endforeach;
     endif;
     ?>

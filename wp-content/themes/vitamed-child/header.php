@@ -13,6 +13,7 @@ defined( 'ABSPATH' ) || exit;
 $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap4' );
 $navbar_type       = get_theme_mod( 'understrap_navbar_type', 'collapse' );
 ?>
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -25,6 +26,11 @@ $navbar_type       = get_theme_mod( 'understrap_navbar_type', 'collapse' );
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
 <!--    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">-->
+
+    <?php $search_console = get_field( 'search_console', 'option' );?>
+    <?php if($search_console){ ?>
+            <?php echo $search_console; ?>
+    <?php } ?>
     <?php
 
     $theme_color = get_field( 'theme_color', 'option' );
@@ -41,6 +47,7 @@ $navbar_type       = get_theme_mod( 'understrap_navbar_type', 'collapse' );
         </style>
     <?php } ?>
 <?php $analytics = get_field( 'analytics', 'option' );?>
+
     <?php if($analytics){?>
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr($analytics) ?>"></script>

@@ -161,10 +161,10 @@ $indicator_sub_title = $info['indicator_sub_title'];
                                     <div class="footer-title lh-1 mb-3"><?php esc_html_e( 'Контакти', 'vitamed' ); ?></div>
                                     <div class="text-white mb-3">
                                         <?php if ( $phone ) { ?>
-                                            <div class=""><?php echo $phone; ?></div>
+                                            <div class=""><a href="tel:<?php echo esc_attr($phone); ?>"><?php echo $phone; ?></a></div>
                                         <?php } ?>
                                         <?php if ( $email ) { ?>
-                                            <div class=""><?php echo $email; ?></div>
+                                            <div class=""><a href="mailto:<?php echo esc_attr($email); ?>"><?php echo $email; ?></a></div>
                                         <?php } ?>
                                     </div>
                                 </div><!-- col -->

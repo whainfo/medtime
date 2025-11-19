@@ -122,7 +122,7 @@ function mp_post_type_register() {
         'can_export'          => true,
         'has_archive'         => true,
         'exclude_from_search' => false,
-        'publicly_queryable'  => true,
+        'publicly_queryable'  => false,
         'capability_type'     => 'post',
     );
 
@@ -224,22 +224,22 @@ function mp_create_taxonomy() {
         'rewrite'           => array( 'slug' => 'languages' ),
     );
 
-    register_taxonomy( 'languages', array( 'doctors' ), $args );
+    //register_taxonomy( 'languages', array( 'doctors' ), $args );
 
     // Specialization
 
     $labels = array(
-        'name'              => _x( 'Specialization', 'taxonomy general name', 'med-portal' ),
-        'singular_name'     => _x( 'Specialization', 'taxonomy singular name', 'med-portal' ),
-        'search_items'      => __( 'Search Specialization', 'med-portal' ),
-        'all_items'         => __( 'All Specialization', 'med-portal' ),
-        'parent_item'       => __( 'Parent Specialization', 'med-portal' ),
-        'parent_item_colon' => __( 'Parent Specialization:', 'med-portal' ),
-        'edit_item'         => __( 'Edit Specialization', 'med-portal' ),
-        'update_item'       => __( 'Update Specialization', 'med-portal' ),
-        'add_new_item'      => __( 'Add New Specialization', 'med-portal' ),
-        'new_item_name'     => __( 'New Specialization Name', 'med-portal' ),
-        'menu_name'         => __( 'Specialization', 'med-portal' ),
+        'name'              => _x( 'Спеціалізації', 'taxonomy general name', 'med-portal' ),
+        'singular_name'     => _x( 'Спеціалізація', 'taxonomy singular name', 'med-portal' ),
+        'search_items'      => __( 'Пошук Спеціалізації', 'med-portal' ),
+        'all_items'         => __( 'Всі Спеціалізації', 'med-portal' ),
+        'parent_item'       => __( 'батьківська Спеціалізація', 'med-portal' ),
+        'parent_item_colon' => __( 'батьківська Спеціалізація:', 'med-portal' ),
+        'edit_item'         => __( 'Редагувати спеціалізацію', 'med-portal' ),
+        'update_item'       => __( 'Оновлення спеціалізації', 'med-portal' ),
+        'add_new_item'      => __( 'Додати нову спеціалізацію', 'med-portal' ),
+        'new_item_name'     => __( 'Нова назва спеціалізації', 'med-portal' ),
+        'menu_name'         => __( 'Спеціалізації', 'med-portal' ),
     );
 
     $args = array(
@@ -258,17 +258,17 @@ function mp_create_taxonomy() {
     // Specialty
 
     $labels = array(
-        'name'              => _x( 'Specialty', 'taxonomy general name', 'med-portal' ),
-        'singular_name'     => _x( 'Specialty', 'taxonomy singular name', 'med-portal' ),
-        'search_items'      => __( 'Search Specialty', 'med-portal' ),
-        'all_items'         => __( 'All Specialty', 'med-portal' ),
-        'parent_item'       => __( 'Parent Specialty', 'med-portal' ),
-        'parent_item_colon' => __( 'Parent Specialty:', 'med-portal' ),
-        'edit_item'         => __( 'Edit Specialty', 'med-portal' ),
-        'update_item'       => __( 'Update Specialty', 'med-portal' ),
-        'add_new_item'      => __( 'Add New Specialty', 'med-portal' ),
-        'new_item_name'     => __( 'New Specialty Name', 'med-portal' ),
-        'menu_name'         => __( 'Specialty', 'med-portal' ),
+        'name'              => _x( 'Спеціальність', 'taxonomy general name', 'med-portal' ),
+        'singular_name'     => _x( 'Спеціальність', 'taxonomy singular name', 'med-portal' ),
+        'search_items'      => __( 'Пошук спеціальності', 'med-portal' ),
+        'all_items'         => __( 'Всі спеціальні', 'med-portal' ),
+        'parent_item'       => __( '  Спеціальність', 'med-portal' ),
+        'parent_item_colon' => __( 'батьківська Спеціальність:', 'med-portal' ),
+        'edit_item'         => __( 'Редагувати Спеціальність', 'med-portal' ),
+        'update_item'       => __( 'Оновлення спеціальності', 'med-portal' ),
+        'add_new_item'      => __( 'Додати нову спеціальність', 'med-portal' ),
+        'new_item_name'     => __( 'Нова назва спеціальності', 'med-portal' ),
+        'menu_name'         => __( 'Спеціальність', 'med-portal' ),
     );
 
     $args = array(
@@ -289,15 +289,15 @@ function mp_create_taxonomy() {
     $labels = array(
         'name'              => _x( 'Посада та науковий ступінь', 'taxonomy general name', 'med-portal' ),
         'singular_name'     => _x( 'Посада та науковий ступінь', 'taxonomy singular name', 'med-portal' ),
-        'search_items'      => __( 'Search Qualification', 'med-portal' ),
-        'all_items'         => __( 'All Qualification', 'med-portal' ),
-        'parent_item'       => __( 'Parent Qualification', 'med-portal' ),
-        'parent_item_colon' => __( 'Parent Qualification:', 'med-portal' ),
-        'edit_item'         => __( 'Edit Qualification', 'med-portal' ),
-        'update_item'       => __( 'Update Qualification', 'med-portal' ),
-        'add_new_item'      => __( 'Add New Qualification', 'med-portal' ),
-        'new_item_name'     => __( 'New Qualification Name', 'med-portal' ),
-        'menu_name'         => __( 'Qualification', 'med-portal' ),
+        'search_items'      => __( 'Пошук Посада та науковий ступінь', 'med-portal' ),
+        'all_items'         => __( 'Всі Посада та науковий ступінь', 'med-portal' ),
+        'parent_item'       => __( 'Батьківська Посада та науковий ступінь', 'med-portal' ),
+        'parent_item_colon' => __( 'Батьківська Посада та науковий ступінь:', 'med-portal' ),
+        'edit_item'         => __( 'Редагувати Посада та науковий ступінь', 'med-portal' ),
+        'update_item'       => __( 'Оновити Посада та науковий ступінь', 'med-portal' ),
+        'add_new_item'      => __( 'Додати нову Посада та науковий ступінь', 'med-portal' ),
+        'new_item_name'     => __( 'Нова назва Посада та науковий ступінь ', 'med-portal' ),
+        'menu_name'         => __( 'Посада та науковий ступінь', 'med-portal' ),
     );
 
     $args = array(

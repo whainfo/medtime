@@ -96,7 +96,7 @@ function custom_breadcrumbs() {
 
 function enqueue_ajax_filter_script() {
     if ( is_post_type_archive( 'doctors' ) ) {
-        wp_enqueue_script( 'ajax-filter', get_stylesheet_directory_uri() . '/js/ajax-filter.js', array( 'jquery' ), '1.0', true );
+        wp_enqueue_script( 'ajax-filter', get_stylesheet_directory_uri() . '/js/ajax-filter.js', array( 'jquery' ), '1.0.1', true );
 
         wp_localize_script( 'ajax-filter', 'ajax_object', array(
                 'ajax_url' => admin_url( 'admin-ajax.php' ),
@@ -164,7 +164,7 @@ function handle_specialty_filter_ajax() {
                                 $year = ' років';
                             }
                             ?>
-                            <span class="experience position-absolute"><?php echo $experience . $year; ?></span>
+                            <span class="experience position-absolute"><?php echo format_years(esc_html( $experience )) ?></span>
                         <?php } ?>
                     </div>
                     <div class="content-wrapper d-flex flex-column flex-grow-1">

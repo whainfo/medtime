@@ -35,7 +35,7 @@ function theme_enqueue_styles() {
     $css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
 
     wp_enqueue_style( 'vitamed-styles', get_stylesheet_directory_uri() . $theme_styles, array(), $css_version );
-    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/custom.css', array(), $css_version );
+    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/custom.css', array(), $css_version.'1' );
     wp_enqueue_script( 'jquery' );
 
     $js_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_scripts );
@@ -132,7 +132,7 @@ function theme_enqueue_styles() {
     }
 
     if ( is_singular( 'doctors' ) ) {
-        
+
         wp_enqueue_style( 'vanillajs-datepicker' );
         wp_enqueue_script( 'vanillajs-datepicker' );
         wp_enqueue_script( 'vanillajs-datepicker-locales-uk' );

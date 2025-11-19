@@ -26,7 +26,9 @@ $title = $args['section']['title'];
                 }
 
                 foreach ($servicePosts as $servicePost) {
-                    foreach (get_field('prices', $servicePost->ID) as $priceRow) {
+                    $prices = get_field('prices', $servicePost->ID) ?? array();
+
+                    foreach ($prices as $priceRow) {
                         array_push($items, $priceRow);
                     }
                 }
@@ -73,7 +75,7 @@ $title = $args['section']['title'];
                                                 <?php endforeach; ?>
                                                 <div class="d-flex nav-links justify-content-start mt-3  gap-4">
                                                     <a class="btn btn-secondary "
-                                                       href="#contact-form">
+                                                       data-bs-toggle="modal" href="#contactModal" role="button">
                                                         <?php esc_html_e('Записатися на прийом', 'vitamed'); ?></a>
                                                 </div><!-- .nav-links -->
                                             </div>

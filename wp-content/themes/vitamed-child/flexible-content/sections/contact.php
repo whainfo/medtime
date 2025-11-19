@@ -6,17 +6,17 @@
  * @subpackage QORP
  */
 
-$key       = isset($args['key']) ? $args['key'] : 0;
+$key       = isset( $args['key'] ) ? $args['key'] : 0;
 $aos_delay = 0;
 if ( $key > 0 ) {
     $aos_delay = 300;
 }
 
 
-$heading = isset($args['section']['heading']) ? $args['section']['heading'] : 'h2';
-$title   = isset($args['section']['title'])? $args['section']['title'] : __('Контакти', 'vitamed' );
+$heading = isset( $args['section']['heading'] ) ? $args['section']['heading'] : 'h2';
+$title   = isset( $args['section']['title'] ) ? $args['section']['title'] : __( 'Контакти', 'vitamed' );
 
-$style = isset($args['section']['style']) ? $args['section']['style'] : 'map-bg';
+$style = isset( $args['section']['style'] ) ? $args['section']['style'] : 'map-bg';
 
 
 $theme_color   = get_field( 'theme_color', 'option' ) ? get_field( 'theme_color', 'option' ) : '#4CD30E';
@@ -25,13 +25,14 @@ $address       = $address_group ? $address_group['locality'] . ' ' . $address_gr
 $working_hours = get_field( 'working_hours', 'option' ) ? get_field( 'working_hours', 'option' ) : '';
 $phone         = get_field( 'phone', 'option' ) ? get_field( 'phone', 'option' ) : '';
 $email         = get_field( 'email', 'option' ) ? get_field( 'email', 'option' ) : '';
+$map_link      = get_field( 'map_link', 'option' ) ? get_field( 'map_link', 'option' ) : '';
 ?>
 <?php if ( $style != 'map-bg' ) { ?>
     <section class="contact-section section-wrapper wrapper position-relative map-img">
         <div class="container">
             <div class="row justify-content-between   ">
                 <div class="col-12 ">
-                    <div class="bg-white rounded-3 p-5"  data-aos="fade-up"  data-aos-delay="<?php echo $aos_delay; ?>">
+                    <div class="bg-white rounded-3 p-5" data-aos="fade-up" data-aos-delay="<?php echo $aos_delay; ?>">
                         <div class=" d-flex flex-wrap justify-content-between ">
                             <div class="col-lg-6 col-xl-5 bg-white rounded-4 p-lg-3" data-aos="fade-up"
                                  data-aos-delay="<?php echo $aos_delay; ?>">
@@ -89,7 +90,15 @@ $email         = get_field( 'email', 'option' ) ? get_field( 'email', 'option' )
 
                                         </div>
                                     <?php endif; ?>
-                                    <?php if ( $address ) { ?>
+
+                                    <?php if ( $map_link ) { ?>
+                                        <div class="cta ">
+                                            <a class="btn btn-secondary"
+                                               href="<?php echo esc_url( $map_link ); ?>"
+                                               target="_blank">
+                                                <?php esc_html_e( 'Переглянути на карті', 'vitamed' ); ?></a>
+                                        </div>
+                                    <?php } elseif ( $address ) { ?>
                                         <div class="cta ">
                                             <a class="btn btn-secondary"
                                                href="<?php echo esc_url( 'https://www.google.com/maps/place/' . str_replace( " ", "+", $address ) ); ?>"
@@ -102,7 +111,7 @@ $email         = get_field( 'email', 'option' ) ? get_field( 'email', 'option' )
 
                             <div class=" col-12 col-md-6  bg-light rounded-4 p-3">
                                 <div class="image-wrapper image-object-cover rounded-4 overflow-hidden ">
-                                    <div  class="map-placeholder bm-map">
+                                    <div class="map-placeholder bm-map">
                                         <div class="map-gradient"></div>
                                     </div>
                                 </div>
@@ -178,7 +187,14 @@ $email         = get_field( 'email', 'option' ) ? get_field( 'email', 'option' )
 
                             </div>
                         <?php endif; ?>
-                        <?php if ( $address ) { ?>
+                        <?php if ( $map_link ) { ?>
+                            <div class="cta ">
+                                <a class="btn btn-secondary"
+                                   href="<?php echo esc_url( $map_link ); ?>"
+                                   target="_blank">
+                                    <?php esc_html_e( 'Переглянути на карті', 'vitamed' ); ?></a>
+                            </div>
+                        <?php } elseif ( $address ) { ?>
                             <div class="cta ">
                                 <a class="btn btn-secondary"
                                    href="<?php echo esc_url( 'https://www.google.com/maps/place/' . str_replace( " ", "+", $address ) ); ?>"

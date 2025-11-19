@@ -80,17 +80,17 @@ body{
   }
 
   .swiper-button-prev {
-    background-image:  url(#{$root-path}images/left-white.svg);
+    background-image:  url(#{$root-path}images/left-white1.svg);
     &:hover{
-        background-image:  url(#{$root-path}images/left.svg);
+        background-image:  url(#{$root-path}images/left1.svg);
     }
 
   }
 
   .swiper-button-next {
-    background-image:  url(#{$root-path}images/right-white.svg);
+    background-image:  url(#{$root-path}images/right-white1.svg);
     &:hover{
-      background-image:  url(#{$root-path}images/right.svg);
+      background-image:  url(#{$root-path}images/right1.svg);
     }
   }
 
