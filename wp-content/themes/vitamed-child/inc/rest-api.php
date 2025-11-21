@@ -168,10 +168,33 @@ add_action('acf/save_post', function ($post_id) {
 }, 20);
 
 function vm_get_acf_fields_for_frontend($post_id) {
-    $fields = get_field_objects($post_id);
-    if (!$fields) return [];
-
+    $post_type = get_post_type( $post_id );
     $result = [];
+    if ( !in_array( $post_type,  array('doctors', 'service'), true ) ) {
+        return true;
+    }
+
+    $fields = [];
+
+    if ( $post_type == 'doctors' )  {
+        $fields[] = get_field_object('experience', $post_id);
+        $fields[] = get_field_object('sign_up_open', $post_id);
+        //$fields[] = get_field_object('consultation_price', $post_id);
+        //$fields[] = get_field_object('information', $post_id);
+    }
+
+    if ( $post_type == 'service' )  {
+        $fields[] = get_field_object('icon', $post_id);
+        $fields[] = get_field_object('description', $post_id);
+//        $fields[] = get_field_object('prices', $post_id);
+//        $fields[] = get_field_object('feature', $post_id);
+
+    }
+
+
+    if (!$fields) return ;
+
+
 
     foreach ($fields as $field_name => $field) {
         $type  = $field['type'];
@@ -188,7 +211,14 @@ function vm_get_acf_fields_for_frontend($post_id) {
 
         // Image / File
         if ($type === 'image' || $type === 'file') {
-            $field_data['value'] = (is_array($value) && isset($value['url'])) ? $value['url'] : '';
+            if (is_array($value) && isset($value['url'])){
+                $field_data['value'] =  $value['url'] ;
+            }
+            elseif (is_int($value)){
+                $attachment_url = wp_get_attachment_url( $value );
+                $field_data['value'] =  $attachment_url;
+            }
+
         }
         // Gallery
         elseif ($type === 'gallery') {
@@ -251,6 +281,16 @@ function vm_get_acf_fields_for_frontend($post_id) {
  * REST API endpoint for frontend
  */
 add_action('rest_api_init', function () {
+    remove_filter('rest_pre_serve_request', 'rest_send_cors_headers');
+
+    add_filter('rest_pre_serve_request', function($value) {
+        header('Access-Control-Allow-Origin: https://wordpress-1210358-5722812.cloudwaysapps.com');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+        header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Allow-Headers: Authorization, Content-Type');
+        return $value;
+    });
+
     register_rest_route('acf-api/v1', '/post/(?P<id>\d+)', [
         'methods' => 'GET',
         'callback' => function ($data) {
