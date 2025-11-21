@@ -45,6 +45,7 @@ function sync_doctor_to_main($post_id, $post, $update) {
         'meta_json' => $meta_json,
         'taxonomies' => $taxonomies,
         'featured_image_url' => $featured_image_url,
+        'site_url' => get_site_url(),
     );
 
     wp_remote_post($endpoint, array('body' => $body, 'timeout' => 30));
@@ -86,6 +87,7 @@ function sync_service_to_main($post_id, $post, $update) {
         'post_data' => $post_data,
         'meta_json' => $meta_json,
         'featured_image_url' => $featured_image_url,
+        'site_url' => get_site_url(),
     );
 
     wp_remote_post($endpoint, array('body' => $body, 'timeout' => 30));
@@ -138,6 +140,7 @@ function sync_clinic_to_main($force_site_slug = null) {
         'clinic_data' => $clinic_data,
         'meta_json' => $meta_json,
         'tax_data' => $tax_data,
+        'site_url' => get_site_url(),
     );
 
     $response = wp_remote_post($endpoint, array('body' => $body, 'timeout' => 30));
