@@ -51,7 +51,44 @@ function sync_doctor_to_main($post_id, $post, $update) {
 }
 add_action('save_post_doctors', 'sync_doctor_to_main', 20, 3);
 
+// Sync doctors on save
+function sync_service_to_main($post_id, $post, $update) {
+    if ($post->post_type !== 'service' || (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)) {
+        return;
+    }
 
+    $main_url = 'https://wordpress-1210358-5722812.cloudwaysapps.com';
+    $endpoint = $main_url . '/wp-json/sync/v1/service';
+
+    $post_data = array(
+        'post_title' => $post->post_title,
+        'post_content' => $post->post_content,
+        'post_status' => $post->post_status,
+        'post_type' => 'service',
+    );
+
+    // Collect all meta
+    $all_meta = get_post_meta($post_id);
+    $meta_json = json_encode($all_meta);
+
+    // Collect taxonomies
+
+
+    // Featured image URL
+    $featured_image_url = has_post_thumbnail($post_id) ? get_the_post_thumbnail_url($post_id, 'full') : '';
+
+    // Send request
+    $body = array(
+        'child_site_slug' => get_option('site_slug'), // Replace with actual (e.g., get_option('child_site_slug'))
+        'original_post_id' => $post_id,
+        'post_data' => $post_data,
+        'meta_json' => $meta_json,
+        'featured_image_url' => $featured_image_url,
+    );
+
+    wp_remote_post($endpoint, array('body' => $body, 'timeout' => 30));
+}
+add_action('save_post_service', 'sync_service_to_main', 20, 3);
 
 function sync_clinic_to_main($force_site_slug = null) {
     $main_url = 'https://wordpress-1210358-5722812.cloudwaysapps.com';
