@@ -67,6 +67,8 @@ function sync_service_to_main($post_id, $post, $update) {
         'post_type' => 'service',
     );
 
+
+
     // Collect all meta
     $all_meta = get_post_meta($post_id);
     $meta_json = json_encode($all_meta);
@@ -161,3 +163,98 @@ add_action('acf/save_post', function ($post_id) {
         sync_clinic_to_main($site_slug);
     }
 }, 20);
+
+function vm_get_acf_fields_for_frontend($post_id) {
+    $fields = get_field_objects($post_id);
+    if (!$fields) return [];
+
+    $result = [];
+
+    foreach ($fields as $field_name => $field) {
+        $type  = $field['type'];
+        $value = $field['value'];
+
+        $field_data = [
+            'key'          => $field['key'],
+            'name'         => $field['name'],
+            'label'        => $field['label'],
+            'type'         => $type,
+            'instructions' => $field['instructions'],
+            'required'     => $field['required'],
+        ];
+
+        // Image / File
+        if ($type === 'image' || $type === 'file') {
+            $field_data['value'] = (is_array($value) && isset($value['url'])) ? $value['url'] : '';
+        }
+        // Gallery
+        elseif ($type === 'gallery') {
+            $urls = [];
+            if (is_array($value)) {
+                foreach ($value as $img) {
+                    if (isset($img['url'])) $urls[] = $img['url'];
+                }
+            }
+            $field_data['value'] = $urls;
+        }
+        // Repeater
+        elseif ($type === 'repeater') {
+            $rows = [];
+            if (is_array($value)) {
+                foreach ($value as $row) {
+                    $row_data = [];
+                    foreach ($field['sub_fields'] as $sub_field) {
+                        $sub_field_obj = $sub_field;
+                        $sub_field_obj['value'] = isset($row[$sub_field['name']]) ? $row[$sub_field['name']] : null;
+                        $row_data[$sub_field['name']] = vm_get_acf_fields_for_frontend($post_id, [$sub_field['name'] => $sub_field_obj])[$sub_field['name']];
+                    }
+                    $rows[] = $row_data;
+                }
+            }
+            $field_data['value'] = $rows;
+        }
+        // Flexible Content
+        elseif ($type === 'flexible_content') {
+            $layouts = [];
+            if (is_array($value)) {
+                foreach ($value as $row) {
+                    $layout_name = $row['acf_fc_layout'];
+                    $layout_fields = [];
+                    foreach ($field['layouts'][$layout_name]['sub_fields'] as $sub_field) {
+                        $sub_field_obj = $sub_field;
+                        $sub_field_obj['value'] = isset($row[$sub_field['name']]) ? $row[$sub_field['name']] : null;
+                        $layout_fields[$sub_field['name']] = vm_get_acf_fields_for_frontend($post_id, [$sub_field['name'] => $sub_field_obj])[$sub_field['name']];
+                    }
+                    $layouts[] = [
+                        'layout' => $layout_name,
+                        'fields' => $layout_fields
+                    ];
+                }
+            }
+            $field_data['value'] = $layouts;
+        }
+        // Інші типи
+        else {
+            $field_data['value'] = $value;
+        }
+
+        $result[$field_name] = $field_data;
+    }
+
+    return $result;
+}
+
+/**
+ * REST API endpoint for frontend
+ */
+add_action('rest_api_init', function () {
+    register_rest_route('acf-api/v1', '/post/(?P<id>\d+)', [
+        'methods' => 'GET',
+        'callback' => function ($data) {
+            $post_id = (int)$data['id'];
+            if (!$post_id) return [];
+            return vm_get_acf_fields_for_frontend($post_id);
+        },
+        'permission_callback' => '__return_true',
+    ]);
+});
