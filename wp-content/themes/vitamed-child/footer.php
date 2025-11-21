@@ -58,7 +58,7 @@ $indicator_sub_title = $info['indicator_sub_title'];
 
 <?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
 
-<footer class="wrapper bg-dark" id="wrapper-footer">
+<footer class="wrapper bg-dark footer-dark" id="wrapper-footer">
 
     <div class="container">
         <?php if ( $subscription ) { ?>
